@@ -44,7 +44,6 @@ public class LoginPage extends TestBase {
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		loginBtn.click();

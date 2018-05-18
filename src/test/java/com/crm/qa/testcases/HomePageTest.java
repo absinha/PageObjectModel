@@ -29,8 +29,6 @@ public class HomePageTest extends TestBase {
 		contactsPage = new ContactsPage();
 		testUtil = new TestUtil();
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-		
-				
 	}
 	
 	@Test(priority=1)

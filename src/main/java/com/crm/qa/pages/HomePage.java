@@ -30,6 +30,9 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "//a[contains(text(),'Tasks')]")
 	WebElement taskLinks;
 	
+	@FindBy(xpath = "//a[contains(text(),'New Task')]")
+	WebElement newtasks;
+	
 	@FindBy(xpath = "//a[contains(text(),'New Contact')]")
 	WebElement newContacts;
 	
@@ -70,22 +73,41 @@ public class HomePage extends TestBase {
 		return new DealsPage();
 	}
 	
-	public void clickOnNewDeals(){
+	public void clickOnNewDeals() throws Exception{
 		Actions action = new Actions(driver);
 		action.moveToElement(dealsLink).build().perform();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		//dealsLink.click();
+		//WebDriverWait wait = new WebDriverWait(driver, 20);
+		while (!(newCreateDeal.isDisplayed())){
+			action.moveToElement(dealsLink).build().perform();
+			//dealsLink.click();
+			
 		}
-		dealsLink.click();
-		newCreateDeal.click();
+			newCreateDeal.click();
+		
+	}
+	
+	//----------------------Tasks Functions---------------------------
+	
+	public boolean verifyTasksLinkLabel(){
+		return taskLinks.isDisplayed();
+	}
+	
+	public void clickOnNewTasks() throws Exception{
+		Actions action = new Actions(driver);
+		action.moveToElement(taskLinks).build().perform();
+		
+		while (!(newtasks.isDisplayed())){
+			action.moveToElement(taskLinks).build().perform();
+			}
+		newtasks.click();
 		
 	}
 	public TasksPage clickOnTasksLink(){
 		taskLinks.click();
 		return new TasksPage();
 	}
+	
+	
 
 }

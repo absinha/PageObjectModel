@@ -1,17 +1,39 @@
-/*package com.crm.qa.testcases;
+package com.crm.qa.testcases;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
 
 import com.crm.qa.base.TestBase;
+import com.crm.qa.pages.HomePage;
+import com.crm.qa.pages.LoginPage;
+import com.crm.qa.util.TestUtil;
 
 public class Rough extends TestBase{
+	
+	LoginPage loginpage;
+	HomePage homepage;
+	TestUtil testutil;
 
-	public static void main(String[] args) {
-		
-		TestBase.initialization();
-
+	public Rough(){
+		super();
 	}
+	
+	@Test
+	public void roughtest(){
+	initialization();
+	loginpage = new LoginPage();
+	homepage = loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+	driver.switchTo().frame("mainpanel");
+	//testutil.switchToFrame();
+	Actions action = new Actions(driver);
+	action.moveToElement(driver.findElement(By.xpath("//a[contains(text(),'Deals')]"))).build().perform();
+	
+}
+	
 
 }
-package com.crm.qa.util;
+/*package com.crm.qa.util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -82,11 +104,9 @@ public class TestUtil extends TestBase{
 		DesiredCapabilities dc = new DesiredCapabilities();
 		dc.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 		
-		}
+		}*/
 	
 	
 
 	
 
-}
-*/

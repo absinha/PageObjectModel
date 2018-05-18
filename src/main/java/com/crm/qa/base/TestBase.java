@@ -62,6 +62,9 @@ public class TestBase  {
 		driver.get(prop.getProperty("url"));
 	}
 	
+	/*public static void tearDown(){
+		driver.quit();
+	}*/
 	
 	
 

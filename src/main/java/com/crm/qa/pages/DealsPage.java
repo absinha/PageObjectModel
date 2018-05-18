@@ -41,6 +41,11 @@ public class DealsPage extends TestBase{
 		primaryContact.sendKeys(pricontact);
 		amount.sendKeys(amt);
 		save.click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 			
 	}
 	
